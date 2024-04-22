@@ -18,9 +18,11 @@ public class Main {
       String userName = "root";
       String password = "";
       
+      Connection conn = null;
+      
       try{
           //open a connection
-          DriverManager.getConnection(url + dbName,
+          conn = DriverManager.getConnection(url + dbName,
                   userName, password);
       }
       catch(SQLException e){
@@ -31,13 +33,18 @@ public class Main {
           System.out.println(e.getMessage());
           System.out.println("I dont know but something bad happened!");
       }
+      
+      //execute a query
           
+      //show the results
           
-          //execute a query
-          
-          //show the results
-          
-          //close the connection      
+      //close the connection  
+        
+      try {
+          conn.close();
+      } catch (SQLException ex) {
+          Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+      }
 
       
       
