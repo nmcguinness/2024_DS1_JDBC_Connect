@@ -1,6 +1,12 @@
 
 package connecttojdbc;
 
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -12,14 +18,27 @@ public class Main {
       String userName = "root";
       String password = "";
       
-      
-      //open a connection
-      
-      //execute a query
-      
-      //show the results
-      
-      //close the connection      
+      try{
+          //open a connection
+          DriverManager.getConnection(url + dbName,
+                  userName, password);
+      }
+      catch(SQLException e){
+          System.out.println(e.getMessage());
+      }
+      catch(Exception e)
+      {
+          System.out.println(e.getMessage());
+          System.out.println("I dont know but something bad happened!");
+      }
+          
+          
+          //execute a query
+          
+          //show the results
+          
+          //close the connection      
+
       
       
         
