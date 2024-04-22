@@ -51,8 +51,8 @@ public class Main {
         {
         System.out.println(resultSet.getInt("GameID"));
         System.out.println(resultSet.getString("GameName"));
-     //   System.out.println(resultSet.getDate("ReleaseDate"));
-     //   System.out.println(resultSet.getString("Genre"));
+        System.out.println(resultSet.getDate("ReleaseDate"));
+        System.out.println(resultSet.getString("Genre"));
         }
       }
       catch(SQLException e)
