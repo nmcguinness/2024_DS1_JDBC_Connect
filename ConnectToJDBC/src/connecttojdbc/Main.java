@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class Main {
 
@@ -35,20 +37,32 @@ public class Main {
       }
       
       //execute a query
+      Statement statement = conn.createStatement();
+      
+      //form the query
+      String query = "SELECT * FROM games"; //use your table name!
           
       //show the results
+      ResultSet resultSet = statement.executeQuery(query);
           
-      //close the connection  
+      
+      while(resultSet.next())
+      {
+      System.out.println(resultSet.getInt("GameID"));
+      System.out.println(resultSet.getString("GameName"));
+      System.out.println(resultSet.getDate("ReleaseDate"));
+      System.out.println(resultSet.getString("Genre"));
+
+      }
+     
         
+       //close the connection  
       try {
           conn.close();
       } catch (SQLException ex) {
           Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
       }
 
-      
-      
-        
     }
     
 }
