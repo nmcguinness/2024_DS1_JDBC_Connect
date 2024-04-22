@@ -36,25 +36,29 @@ public class Main {
           System.out.println("I dont know but something bad happened!");
       }
       
-      //execute a query
-      Statement statement = conn.createStatement();
-      
-      //form the query
-      String query = "SELECT * FROM games"; //use your table name!
-          
-      //show the results
-      ResultSet resultSet = statement.executeQuery(query);
-          
-      
-      while(resultSet.next())
-      {
-      System.out.println(resultSet.getInt("GameID"));
-      System.out.println(resultSet.getString("GameName"));
-      System.out.println(resultSet.getDate("ReleaseDate"));
-      System.out.println(resultSet.getString("Genre"));
+      try{
+        //execute a query
+        Statement statement = conn.createStatement();
 
+        //form the query
+        String query = "SELECT * FROM games"; //use your table name!
+
+        //show the results
+        ResultSet resultSet = statement.executeQuery(query);
+
+
+        while(resultSet.next())
+        {
+        System.out.println(resultSet.getInt("GameID"));
+        System.out.println(resultSet.getString("GameName"));
+     //   System.out.println(resultSet.getDate("ReleaseDate"));
+     //   System.out.println(resultSet.getString("Genre"));
+        }
       }
-     
+      catch(SQLException e)
+      {
+          System.out.println(e.getMessage());
+      }
         
        //close the connection  
       try {
