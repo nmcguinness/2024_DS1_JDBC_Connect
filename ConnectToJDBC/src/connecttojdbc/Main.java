@@ -1,12 +1,6 @@
-
 package connecttojdbc;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.sql.Statement;
 import java.sql.ResultSet;
 
 public class Main {
@@ -23,6 +17,13 @@ public class Main {
       //connect to DB
       Connection conn 
        = DBConnect.connect(url, dbName, userName, password);
+      
+      //execute query
+      ResultSet resultSet
+              = DBCommand.execute(conn, "SELECT * FROM games");
+           
+      //show results
+      DBCommand.showOutput(resultSet);
       
       //disconnect from DB
       DBConnect.disconnect(conn);

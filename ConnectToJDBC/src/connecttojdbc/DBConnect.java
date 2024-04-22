@@ -6,13 +6,23 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Provides MySQL connectivity functionality
+ * @author NMCG
+ * @version 1.0
+ * @since 22/4/24
+ * @see DBCommand
+ */
 public class DBConnect {
     
-    //no member variables - no state
-   // private string someUsefulVar;
-   // private int connectSpeed;
-    
-
+    /**
+     * Connect to a remote MySQL database
+     * @param url URL
+     * @param dbName database name
+     * @param userName user name with no spaces
+     * @param password password with no spaces
+     * @return valid MySQL connection object
+     */
     public static Connection connect(String url,
             String dbName, String userName,
             String password)
