@@ -31,8 +31,13 @@ public class Main {
 
      public void run() { 
          
+      /************************* CONNECT *************************/
+      
       //connect to DB
       conn = DBConnect.connect(url, dbName, userName, password);
+      
+            
+      /************************* QUERY *************************/
       
       //specify the query
       String query = "SELECT * FROM games";
@@ -41,8 +46,26 @@ public class Main {
       ResultSet resultSet = DBCommand.executeQuery(conn, query);
            
       //show results
-      DBOutputFormatter.showAllGames("Query: SELECT * FROM games...", resultSet);
-  
+      DBOutputFormatter.showAllGames("Query: " + query, resultSet);
+      
+      /************************* QUERY *************************/
+      
+      //specify the query
+      query = "SELECT Players.FirstName, PlayerGames.Score, Games.GameName "
+              + "FROM Players "
+              + "JOIN PlayerGames ON Players.PlayerID = PlayerGames.PlayerID "
+              + "JOIN Games ON PlayerGames.GameID = Games.GameID "
+              + "ORDER BY Players.FirstName ASC";
+      
+      //execute query
+      resultSet = DBCommand.executeQuery(conn, query);
+           
+      //show results
+      DBOutputFormatter.showAllScores("Query: " + query, resultSet);
+      
+            
+      /************************* DISCONNECT *************************/
+      
       //disconnect from DB
       DBConnect.disconnect(conn);
 
