@@ -4,6 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 
+/**
+ * Demonstrates how to write object-oriented (i.e., use classes to bundle functionality) code in Java to connect to your DB
+ * @author NMCG
+ * @since 22/4/24
+ * @see DBConnect
+ */
 public class Main {
     
      //some common setup variables (e.g., password, url, name, dbname)
