@@ -37,7 +37,7 @@ public class Main {
       conn = DBConnect.connect(url, dbName, userName, password);
       
             
-      /************************* QUERY *************************/
+      /************************* QUERY 1 *************************/
       
       //specify the query
       String query = "SELECT * FROM games";
@@ -48,7 +48,7 @@ public class Main {
       //show results
       DBOutputFormatter.showAllGames("Query: " + query, resultSet);
       
-      /************************* QUERY *************************/
+      /************************* QUERY 2 *************************/
       
       //specify the query
       query = "SELECT Players.FirstName, PlayerGames.Score, Games.GameName "
