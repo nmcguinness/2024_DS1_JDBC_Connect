@@ -6,9 +6,21 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
 
+/**
+ * This class is used to execute the query and show the output
+ * @author NMCG
+ * @since 22/4/24
+ * @see DBConnect
+ */
 public class DBCommand {
 
-    public static ResultSet execute(Connection conn,
+    /**
+     * This method is execute a SELECT query on the SQL DB
+     * @param conn Connection object
+     * @param query query to be executed
+     * @return ResultSet object
+     */
+    public static ResultSet executeQuery(Connection conn,
             String query) {
         
         ResultSet resultSet = null;
@@ -21,25 +33,23 @@ public class DBCommand {
             System.out.println(e.getMessage());
         }
         return resultSet;
-    }
+    } 
 
-    public static void showOutput(ResultSet resultSet) {
-        
+    /**
+     * This method is execute an INSERT, UPDATE, or DELETE query on the SQL DB
+     * @param resultSet ResultSet object
+     * @return int row count updated
+     */
+    public static int executeUpdate(Connection conn, String query) {
+        int result = 0;
         try{
-            while(resultSet.next())
-            {
-            System.out.println(resultSet.getInt("GameID"));
-            System.out.println(resultSet.getString("GameName"));
-            System.out.println(resultSet.getDate("ReleaseDate"));
-            System.out.println(resultSet.getString("Genre"));
-            }
-            
-          //  resultSet.close();
+            Statement statement = conn.createStatement();
+            result = statement.executeUpdate(query);
         }
         catch(SQLException e)
         {
             System.out.println(e.getMessage());
         }
+        return result;
     }
-    
 }
