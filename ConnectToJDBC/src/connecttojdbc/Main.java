@@ -42,7 +42,7 @@ public class Main {
            
       //show results
       DBOutputFormatter.showAllGames("Query: SELECT * FROM games...", resultSet);
-      
+  
       //disconnect from DB
       DBConnect.disconnect(conn);
 

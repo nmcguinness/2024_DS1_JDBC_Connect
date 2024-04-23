@@ -18,6 +18,12 @@ public class DBOutputFormatter {
      */
     public static int showAllGames(String title, ResultSet resultSet)
     {
+        if(resultSet == null)
+        {
+            System.out.println("No results were returned!");
+            return -1;
+        }
+        
         int rowCount = 0;
 
         //print header
