@@ -28,6 +28,17 @@ public class Main {
         //create an instance of the Main class to call the non-static run() method
         new Main().run();
      }
+    
+     //since connection (conn) is a member variable it is accessible in all non-static methods in Main
+//     public void doDelete(){
+//         int rowCount = DBCommand.executeUpdate(conn, 
+//              "DELETE FROM games WHERE GameID > 2");
+//         
+//         if(rowCount != -1)
+//            System.out.println("We deleted " + rowCount + " rows!");
+//         else
+//             System.out.println("Delete was not successful!");
+//     }
 
      public void run() { 
          
@@ -35,8 +46,7 @@ public class Main {
       
       //connect to DB
       conn = DBConnect.connect(url, dbName, userName, password);
-      
-            
+                  
       /************************* QUERY 1 *************************/
       
       //specify the query

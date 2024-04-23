@@ -13,6 +13,8 @@ import java.util.logging.Logger;
  */
 public class DBConnect {
     
+    private int portNumber;
+    
     /**
      * This method is used to connect to the database
      * @param url URL of the database
@@ -48,8 +50,8 @@ public class DBConnect {
           conn.close();
           return true;
       } 
-      catch (SQLException ex) {
-          Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+      catch (SQLException e) {
+          System.out.println(e.getMessage());
       }
       
       return false;

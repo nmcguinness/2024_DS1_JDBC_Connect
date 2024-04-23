@@ -16,7 +16,8 @@ public class DBOutputFormatter {
      * @param resultSet ResultSet object
      * @return int row count
      */
-    public static int showAllGames(String title, ResultSet resultSet)
+    public static int showAllGames(String title, 
+            ResultSet resultSet)
     {
         if(resultSet == null)
         {
@@ -112,5 +113,10 @@ public class DBOutputFormatter {
         //return the number of rows output
         return rowCount;
     }
+
+
+    //add my output formatters here based on my new queries...
+
+
 }
 
