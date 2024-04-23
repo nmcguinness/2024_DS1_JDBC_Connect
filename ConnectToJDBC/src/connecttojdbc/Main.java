@@ -6,13 +6,17 @@ import java.sql.ResultSet;
 
 public class Main {
     
-      //some common setup variables (e.g., password, url, name, dbname)
-      String url = "jdbc:mysql://localhost:3306/";
-      String dbName = "2024_ds1_ca3_games"; //"your DB name goes here"
+     //some common setup variables (e.g., password, url, name, dbname)
+     String url = "jdbc:mysql://localhost:3306/";
+     String dbName = "2024_ds1_ca3_games"; //"your DB name goes here"
       
-      String userName = "root";
-      String password = "";
-      Connection conn = null;
+     //access related variables
+     String userName = "root";
+     String password = "";
+     
+     //store the connection to the DB
+     Connection conn = null;
+     
 
      public static void main(String[] args) {
          
