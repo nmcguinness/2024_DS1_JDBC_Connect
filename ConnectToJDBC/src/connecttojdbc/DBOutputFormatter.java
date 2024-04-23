@@ -62,6 +62,12 @@ public class DBOutputFormatter {
         return rowCount;
     }
 
+    /**
+     * This method is used to show the output of the query "SELECT * FROM scores"
+     * @param title String title
+     * @param resultSet ResultSet object
+     * @return int row count
+     */
     public static int showAllScores(String title, ResultSet resultSet) {
         
         if(resultSet == null)
